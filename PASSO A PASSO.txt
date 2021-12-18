@@ -1,0 +1,42 @@
+criar a pasta do projeto
+
+dentro criar a virtual env
+
+python -m venv nome_venv
+
+ativar venv
+
+instalar django
+
+pip install django
+
+selecionar/ativar a venv criada
+
+abrir no pycharm
+
+verificar se o interpretador está correto, caso contrário tem que adicionar a venv em settings
+
+django-admin startproject gestao_rh .
+
+testar 
+python manage.py runserver
+
+criar comandos no pycharm: runserver, migrate, makemigrations
+
+criar super usuário
+
+python manage.py createsuperuser
+
+configurar o gitbash no terminal do pycharm
+
+"C:\Program Files\Git\bin\sh.exe" --login -i
+
+Criar na pasta raiz o arquivo .gitignore
+
+na linha de comando digitar git init para iniciar o repositório
+
+git status para ver o que vai tirar fora
+
+criar a aplicação
+
+django start-project

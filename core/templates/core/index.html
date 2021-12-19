@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block main %}
-
-    Seja bem-vindo!
+    <div class="row">
+        <div class="col-sm">
+            Seja bem-vindo!
+        </div>
+        <div class="col-sm">
+            Almeron
+        </div>
+        <div class="col-sm">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
 
 {% endblock %}

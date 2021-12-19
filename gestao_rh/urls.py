@@ -20,4 +20,5 @@ urlpatterns = [
     path('', include('core.urls')), #quando não digitar nada levar para core
     path('funcionarios/', include('funcionarios.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

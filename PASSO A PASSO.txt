@@ -37,6 +37,43 @@ na linha de comando digitar git init para iniciar o repositório
 
 git status para ver o que vai tirar fora
 
-criar a aplicação
+.idea
+*.sqlite3
+gestao_rh_venv
 
-django start-project
+git add .
+git commit -m "First commit"
+
+*se precisar configurar o e-mail no git:
+git config --global user.email "malmeron@hotmail.com"
+git config --global user.name "Mauricio Almeron"
+
+logar no github
+
+criar o repositório gestao_rh
+
+Depois de criado fazer "manualmente" somente o gitremote
+git remote add origin https://github.com/malmeron/gestao_rh.git
+git push -u origin master
+
+criar a pasta apps
+
+criar a aplicação
+python manage.py startapp empresas
+
+arrastar para dentro da pasta apps NÃO DEU CERTO -> CRIEI NA RAIZ MESMO
+
+no Models criar a classe e seus atributos
+
+rodar o makemigrations
+
+adicionar no settings a app
+
+git add .gitignore
+
+git add empresas
+
+git add todas as alterações -> ver em git status
+
+
+

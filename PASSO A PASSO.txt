@@ -75,5 +75,10 @@ git add empresas
 
 git add todas as alterações -> ver em git status
 
+ou
+
+git add . (para adicionar tudo de uma vez)
+
+	
 
 

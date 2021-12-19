@@ -80,5 +80,12 @@ ou
 git add . (para adicionar tudo de uma vez)
 
 	
+Para apagar a pasta que já tinha subido pra não enviar mais:
+
+git rm --cached gestao_rh/__pycache__/ -r
+
+git add .
+git commit -m "Ajustando o gitignore"
+git push origin master
 
 

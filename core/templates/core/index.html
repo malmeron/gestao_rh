@@ -6,8 +6,19 @@
             Seja bem-vindo!
         </div>
         <div class="col-sm">
-            Almeron
+            Olá {{ usuario.funcionario.nome }}
+            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionários</a>
+            <a href="{% url 'list_departamentos' %}">Gerenciar departamentos</a>
         </div>
+
+        <div class="col-sm">
+            {% if usuario.funcionario.empresa %}
+                {{usuario.funcionario.empresa.nome}}<a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}"> - Editar Empresa</a>
+            {% else %}
+                <a href="{% url 'create_empresa' %}">Criar Empresa</a>
+            {% endif %}
+        </div>
+
         <div class="col-sm">
             <a href="{% url 'logout' %}">Logout</a>
         </div>

@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
-
+{% load bootstrap %}
 {% block main %}
+
+<h3>Funcionario {{ object }}</h3>
     <div class="row">
-
-        List <br>
-
         <div class="col-sm">
             <div class="row">
-
-
                 <form method="post">
                     {% csrf_token %}
-                    {{ form }}
+                    {{ form|bootstrap }}
 
                     <button type="submit">Salvar</button>
                 </form>
+
+                <a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Documento</a>
+                <h3>Lista de Documentos do Funcionário</h3>
+                {% for documento in object.documento_set.all %}
+                    <a href="{{ documento.arquivo.url }}"> {{ documento }} </a> <br>
+                {% endfor %}
             </div>
         </div>
 

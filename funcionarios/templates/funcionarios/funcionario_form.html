@@ -10,14 +10,21 @@
                     {% csrf_token %}
                     {{ form|bootstrap }}
 
-                    <button type="submit">Salvar</button>
+                    <button type="submit"  class="btn btn-success">Salvar</button>
+                    {% if object %}
+                        <a href="{% url 'create_documento' object.id %}" class="btn btn-primary">Adicionar Documento</a>
+                    {% endif %}
                 </form>
 
-                <a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Documento</a>
+
                 <h3>Lista de Documentos do Funcionário</h3>
-                {% for documento in object.documento_set.all %}
-                    <a href="{{ documento.arquivo.url }}"> {{ documento }} </a> <br>
-                {% endfor %}
+                {% if not object.documento_set.all %}
+                    <h3>Não existem documentos cadastrados.</h3>
+                {% endif %}
+                    {% for documento in object.documento_set.all %}
+                        <a href="{{ documento.arquivo.url }}"> {{ documento }} </a> <br>
+                    {% endfor %}
+
             </div>
         </div>
 

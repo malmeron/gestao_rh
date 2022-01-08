@@ -5,14 +5,25 @@
     <H3>{{ object }}</H3>
     <div class="row">
 
-        List <br>
+        <H3>Banco de Horas</H3> <br>
 
         <div class="col-sm">
+                {% if not object_list %}
+                    <H3>Não existem horas extras registradas.</H3>
+                {% endif %}
+
                 {% for registro in object_list %}
-                    {{ registro }}<br>
+                 <a href="{% url 'update_hora_extra' registro.id %}">
+                    {{ registro }}
+                 </a>
+                <a href="{% url 'delete_hora_extra' registro.id %}">
+                    Deletar
+                 </a>
+                    <br>
                 {% endfor %}
         </div>
 
     </div>
+<a href="{% url 'create_registro_hora_extra' %}" class="btn btn-info"> Criar Hora Extra </a>
 
 {% endblock %}

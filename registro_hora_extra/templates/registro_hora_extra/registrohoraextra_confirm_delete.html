@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="row">
+
+        <h3>Removendo Registro de Hora Extra<h3> <br>
+
+        <div class="col-sm">
+            <div class="row">
+
+
+                <form method="post">
+                    {% csrf_token %}
+                    <H2> Você está certo que quer deletar a hora extra {{ object }} </H2>
+                    {{ form }}
+
+                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

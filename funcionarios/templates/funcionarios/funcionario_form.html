@@ -12,22 +12,39 @@
 
                     <button type="submit"  class="btn btn-success">Salvar</button>
                     {% if object %}
-                        <a href="{% url 'create_documento' object.id %}" class="btn btn-primary">Adicionar Documento</a>
+
                     {% endif %}
                 </form>
 
-
-                <h3>Lista de Documentos do Funcionário</h3>
-                {% if not object.documento_set.all %}
-                    <h3>Não existem documentos cadastrados.</h3>
-                {% endif %}
+                <h2> Documentos </h2>
+                <ul>
                     {% for documento in object.documento_set.all %}
-                        <a href="{{ documento.arquivo.url }}"> {{ documento }} </a> <br>
+                        <li>
+                            <a href="{{ documento.arquivo.url }}"> {{ documento.descricao }} </a> <br>
+                        </li>
                     {% endfor %}
-
+                </ul>
             </div>
+            <a href="{% url 'create_documento' object.id %}" class="btn btn-primary">Adicionar Documento</a>
         </div>
 
+        <div class="col-sm">
+            <div class="row">
+
+                <h2> Banco de Horas </h2>
+                <ul>
+                    {% for registro_hora in object.registrohoraextra_set.all %}
+                        <li>
+                            <a href="{% url 'update_hora_extra' registro_hora.id %}"> {{ registro_hora.motivo }} | {{ registro_hora.horas }}
+                                <br>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <h3>Total de horas extras: {{ object.total_horas_extra }}</h3>
+            </div>
+            <a href="{% url 'create_documento' object.id %}" class="btn btn-primary">Adicionar Banco de Horas</a>
+        </div>
     </div>
 
 {% endblock %}

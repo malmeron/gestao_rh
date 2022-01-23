@@ -124,12 +124,16 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# PARA RODAR NO SERVIDOR
 STATIC_ROOT = '/home/ubuntu/gestao_rh/static/'
+# PARA RODAR LOCALMENTE
 #STATIC_ROOT = '/static/'
+#STATIC_ROOT = 'C:\gestao_rh\static'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "/static/"),)
 
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, "/static/"),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "staticfiles"),)
+MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 

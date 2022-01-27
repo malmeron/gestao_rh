@@ -18,6 +18,20 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.conf.urls import url
+from rest_framework import routers
+from core import views
+
+from funcionarios.api.views import FuncionarioViewSet
+from registro_hora_extra.api.views import RegistroHoraExtraViewSet
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'api/funcionarios', FuncionarioViewSet)
+router.register(r'api/banco-horas', RegistroHoraExtraViewSet)
+
+
 urlpatterns = [
     path('', include('core.urls')), #quando não digitar nada levar para core
     path('funcionarios/', include('funcionarios.urls')),
@@ -27,4 +41,10 @@ urlpatterns = [
     path('horas-extras/', include('registro_hora_extra.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+
+
+
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
